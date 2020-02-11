@@ -1,0 +1,31 @@
+{
+  "name": "azuvendas-1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "babel-node": "babel-node src/index.js",
+    "dev": "nodemon --exec npm run babel-node",
+    "start": "node dist/index.js"
+  },
+  "author": "Lourenço Daniel Sebastião Carlos",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/node": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "nodemon": "^2.0.2"
+  }
+}

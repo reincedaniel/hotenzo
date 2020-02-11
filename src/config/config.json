@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "1212",
+    "database": "ustock",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "options.operatorsAliases": false
+  },
+  "test": {
+    "username": "QMTms9mzhJ",
+    "password": "yqrwRivG1a",
+    "database": "QMTms9mzhJ",
+    "host": "https://remotemysql.com/",
+    "dialect": "mysql",
+    "options.operatorsAliases": false
+  },
+  "production": {
+    "username": "QMTms9mzhJ",
+    "password": "yqrwRivG1a",
+    "database": "QMTms9mzhJ",
+    "host": "https://remotemysql.com/",
+    "dialect": "mysql",
+    "options.operatorsAliases": false
+  }
+}
