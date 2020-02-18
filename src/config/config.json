@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "1212",
+    "username": "Ustock",
+    "password": "Ust0ck",
     "database": "ustock",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
+    "host": "10.11.1.68",
+    "dialect": "mssql",
     "options.operatorsAliases": false
   },
   "test": {

@@ -7,7 +7,7 @@ module.exports = app => {
 
     // List Input/service
     app.get('/api/inputs', verifyToken, (req, res) => {
-        models.Input.findAll({include:[{model:models.Article},{model: models.Provider}]}).then((inputs) => {
+        models.Input.findAll({include:[{model:models.Article},{model: models.Provider},{model:models.Order}]}).then((inputs) => {
             res.json({
                 inputs
             })
@@ -22,7 +22,16 @@ module.exports = app => {
         
         models.Input.create(Input)
             .then((inputs) => {
-                return res.json({ inputs, 'code': 1 })
+                inputs.update({internal_code: "IN"+inputs.id}).then(e=>{
+                    models.Article.findOne({
+                        where: { id: Input.articleId }
+                    })
+                        .then((inputsx) => {
+                        return res.json({ inputsx, 'code': 1 })
+                    })
+
+                })
+              
             })
             .catch((err) => {
                 return res.json({ 'error': 'Cannot add Input', 'code': 0 })

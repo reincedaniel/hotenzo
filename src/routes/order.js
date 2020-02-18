@@ -8,7 +8,7 @@ module.exports = app => {
     // List order/service
     app.get('/api/orders', verifyToken, (req, res) => {
         models.Order.findAll(
-            {include: [models.Client, {association: models.Order.OrderItems, include: [models.OrderItem.Article]}]})
+            {include: [models.Client,models.Operation,models.Material, {association: models.Order.OrderItems, include: [models.OrderItem.Article]}]})
             .then((orders) => {
 
             res.json({
@@ -25,7 +25,12 @@ module.exports = app => {
 
         models.Order.create(req.body, {include: [models.OrderItem]})
             .then((orders) => {
-                return res.json({ orders, 'code': 1 })
+                orders.update({internal_code: "OUT"+orders.id, internal_code_order:"OUTPUT"}).then(e=>{
+
+                    return res.json({ orders, 'code': 1 })
+                })
+                
+                
             })
             .catch((err) => {
                 return res.json({ 'error': 'Cannot add order', 'code': 0 })

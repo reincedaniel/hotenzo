@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.hasMany(models.Order)
     User.hasMany(models.Article)
+    User.hasMany(models.Material)
     User.hasMany(models.Task)
   };
   return User;

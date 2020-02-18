@@ -7,7 +7,7 @@ module.exports = app => {
     // List orderitem/service
     app.get('/api/orderitems',verifyToken,(req, res) => {
 
-        models.OrderItem.findAll({include: [models.Article]}).then((orderitems) => {
+        models.OrderItem.findAll({include: [{model:models.Article},{model:models.Category},{model: models.Order}]}).then((orderitems) => {
             res.json({
                 orderitems
             })

@@ -8,11 +8,37 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      quantity: {
+        type: Sequelize.INTEGER
+      },
       internal_code: {
         type: Sequelize.STRING,
         defaultValue: '----'
       },
+      internal_code_order: {
+        type: Sequelize.STRING,
+        defaultValue: '----'
+      },
+      purchase: {
+        type: Sequelize.DECIMAL,
+        defaultValue: 0
+      },
+      iva: {
+        type: Sequelize.DECIMAL,
+        defaultValue: 0
+      },
+      discount: {
+        type: Sequelize.DECIMAL,
+        defaultValue: 0
+      },
+      total: {
+        type: Sequelize.DECIMAL,
+        defaultValue: 0
+      },
       userId: {
+        type: Sequelize.INTEGER
+      },
+      providerId: {
         type: Sequelize.INTEGER
       },
       inputId: {
@@ -23,6 +49,9 @@ module.exports = {
         defaultValue: true
       },
       description: {
+        type: Sequelize.STRING
+      },
+      info: {
         type: Sequelize.STRING
       },
       marca: {

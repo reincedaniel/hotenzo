@@ -11,7 +11,17 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
+      orderId: {
+        type: Sequelize.INTEGER
+      },
+      clientId: {
+        type: Sequelize.INTEGER
+      },
       internal_code: {
+        type: Sequelize.STRING,
+        defaultValue: '----'
+      },
+      internal_code_order: {
         type: Sequelize.STRING,
         defaultValue: '----'
       },

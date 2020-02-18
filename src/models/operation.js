@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     obs: DataTypes.STRING,
   }, {});
   Operation.associate = function(models) {
-    // associations can be defined here
+    Operation.hasMany(models.Order)
   };
   return Operation;
 };

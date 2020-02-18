@@ -12,6 +12,9 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: '----'
       },
+      info: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER
       },

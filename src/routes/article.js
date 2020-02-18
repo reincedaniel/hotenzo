@@ -7,7 +7,7 @@ module.exports = app => {
     // List Article/service
     app.get('/api/articles',verifyToken,(req, res) => {
 
-        models.Article.findAll({include:[{model: models.Category},{model: models.User}]}).then((articles) => {
+        models.Article.findAll({include:[{model: models.Input},{model: models.Provider},{model: models.User}]}).then((articles) => {
             res.json({
                 articles
             })
@@ -17,7 +17,7 @@ module.exports = app => {
     app.post('/api/articles', (req, res) => {
 
         // Params
-        var Article = req.body
+        var Article = req.body.Article
 
 
         // Verify if exist into models.articles
@@ -31,7 +31,7 @@ module.exports = app => {
                             return res.json({ articles, 'code': 1 })
                         } */
                     models.Article.create(Article)
-                        .then(articles => articles.update({internal_code:'UCL'+articles.id}).then(d=>{
+                        .then(articles => articles.update({internal_code:'ATG'+articles.id}).then(d=>{
                             return res.json({ articles, 'code': 1 })
                         }).catch((err)=>{
                             return res.json({ 'error': 'Cannot add Article, error internal code', 'code': 0 })
@@ -53,7 +53,7 @@ module.exports = app => {
     app.put('/api/articles/:id', (req, res) => {
 
         // Params
-        var Article = req.body
+        var Data = req.body
 
         // Verify if exist into models.articles
 
@@ -62,9 +62,11 @@ module.exports = app => {
             where: { id: req.params.id }
         })
             .then((ArticleFound2) => {
-                ArticleFound2.update(Article)
+                ArticleFound2.update(Data.Article)
                     .then((articles) => {
+
                         return res.json({ articles, 'code': 1 })
+ 
                     })
                     .catch((err) => {
                         return res.json({ 'error': 'Cannot Update Article', 'code': 0 })

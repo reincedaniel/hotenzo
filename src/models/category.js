@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Category.associate = function(models) {
     Category.hasMany(models.Article)
+/*     Category.Articles= Order.hasMany(models.Article) */
   };
   return Category;
 };
